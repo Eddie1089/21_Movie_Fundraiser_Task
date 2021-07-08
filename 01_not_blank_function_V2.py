@@ -1,5 +1,6 @@
 # function goes here
 
+
 def not_blank(question, error_message):
     valid = False
 
@@ -10,6 +11,7 @@ def not_blank(question, error_message):
             return response
         else:
             print(error_message)
+
 
 # Main Routine goes here
 name = not_blank("Name: ",
