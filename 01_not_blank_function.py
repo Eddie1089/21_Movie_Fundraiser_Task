@@ -9,7 +9,7 @@ def not_blank(question):
         if response != "":
             return response
         else:
-            print("This field can NOT be blank, please enter your name")
+            print("This field can NOT be blank")
 
 # Main Routine goes here
 name = not_blank("Name: ")
