@@ -1,8 +1,6 @@
 # Import Statements
 print ()
 # Functions go here
-
-# ********** Main Routine **********
 def not_blank(question, error_message):
     valid = False
 
@@ -19,29 +17,9 @@ def not_blank(question, error_message):
 name = not_blank("Name: ",
                  "This field can NOT be blank, "
                  "please enter your name")
+# ********** Main Routine **********
 
-
-
-name = ""
-count = 0
-MAX_TICKETS = 5
-
-while name != "xxx" and count < MAX_TICKETS:
-    print("You have {} seat(s) "
-          "left".format(MAX_TICKETS - count))
-
-    #   Get details...
-    name = input("Name: ")
-    count += 1
-    print()
-
-if count == MAX_TICKETS:
-    print("You have sold all of the available tickets!")
-else:
-    print("You have sold {} tickets.    \n"
-          "There are {} places still available"
-          .format(count, MAX_TICKETS - count))
-
+# Main Routine goes here
 
 # Set up dictionary's/lists to hold data
 
