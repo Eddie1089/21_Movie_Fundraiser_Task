@@ -1,7 +1,7 @@
 # Import Statements
-print ()
+
 # Functions go here
-def not_blank(question, error_message):
+def not_blank(question):
     valid = False
 
     while not valid:
@@ -10,13 +10,10 @@ def not_blank(question, error_message):
         if response != "":
             return response
         else:
-            print(error_message)
+            print("This field can NOT be blank,"
+                  "please enter you name.")
+# Checks that the name on the ticket is not blank
 
-
-# Main Routine goes here
-name = not_blank("Name: ",
-                 "This field can NOT be blank, "
-                 "please enter your name")
 # ********** Main Routine **********
 
 # Main Routine goes here
@@ -28,6 +25,7 @@ name = not_blank("Name: ",
 # Loop to get ticket details
 
     # Get name (can't be blank)
+    name = not_blank("Name: ")
 
     # Get age (between 12 and 130)
 

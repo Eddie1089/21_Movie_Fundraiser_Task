@@ -11,6 +11,7 @@ def not_blank(question):
         else:
             print("This field can NOT be blank")
 
+
 # Main Routine goes here
 name = not_blank("Name: ")
 
