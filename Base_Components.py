@@ -16,12 +16,13 @@ def not_blank(question, error_message):
         # if  name is blank show error, and repeat loop
         else:
             print(error_message)
-
+    name = not_blank("Name: ",
+                     "This field can NOT be blank, "
+                     "please enter your name")
+# Get name (can't be blank)
 
 # Main Routine goes here
-name = not_blank("Name: ",
-                 "This field can NOT be blank, "
-                 "please enter your name")
+
 # ********** Main Routine **********
 
 # Main Routine goes here
@@ -31,8 +32,6 @@ name = not_blank("Name: ",
 # Ask the user if they have used to program before and give instructions if necessary
 
 # Loop to get ticket details
-
-    # Get name (can't be blank)
 
     # Get age (between 12 and 130)
 
