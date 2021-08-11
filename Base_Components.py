@@ -34,12 +34,15 @@ def int_check(question):
 
         except ValueError:
             print(error)
-name = ""
-count = 0
-MAX_TICKETS = 5
 
-while name != "xxx" and count < MAX_TICKETS:
-    print("You have {} seat(s) left".format(MAX_TICKETS - count))
+
+name = ""
+ticket_count = 0
+MAX_TICKETS = 5
+profit = 0
+
+while name != "xxx" and ticket_count < MAX_TICKETS:
+    print("You have {} seat(s) left".format(MAX_TICKETS - ticket_count))
 
     #   Get details...
     name = input("Name: ")
@@ -55,7 +58,22 @@ while name != "xxx" and count < MAX_TICKETS:
         print("You are too old to watch this film, or this input was a mistake!")
         continue
 
-    count += 1
+    if age < 16:
+        ticket_price = 7.5
+    elif age >= 65:
+        ticket_price = 6.5
+    else:
+        ticket_price = 10.5
+
+        profit_made = ticket_price - 5
+        profit += profit_made
+
+        print("{} : ${:.2f}".format(name, ticket_price))
+
+    ticket_count += 1
+
+print("Profit from tickets: ${:.2f}".format(profit))
+
     # Get age (between 12 and 130)
 
     # Calculate ticket price
