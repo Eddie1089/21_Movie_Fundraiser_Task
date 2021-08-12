@@ -72,6 +72,14 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
 
     ticket_count += 1
 
+    if ticket_count == MAX_TICKETS:
+        print("You have sold all of the available tickets!")
+    else:
+        print("You have sold {} tickets.    \n"
+              "There are {} places still available"
+              .format(ticket_count, MAX_TICKETS - ticket_count))
+
+
 print("Profit from tickets: ${:.2f}".format(profit))
 
     # Get age (between 12 and 130)
