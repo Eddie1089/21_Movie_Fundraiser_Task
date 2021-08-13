@@ -5,7 +5,31 @@
 # Checks that the name on the ticket is not blank
 
 # Get name (can't be blank)
+def not_blank(question):
+    valid = False
+    while not valid:
+        response = input(question)
 
+        if response != "":
+            return response
+        else:
+            print("This field can NOT be blank")
+
+# integer checker
+
+
+def int_check(question):
+    error = "Please enter a whole number between 12 amd 130."
+    valid = False
+    while not valid:
+
+        # ask the user for a number and check it is valid
+        try:
+            response = int(input(question))
+            return response
+
+        except ValueError:
+            print(error)
 # Main Routine goes here
 
 # ********** Main Routine **********
@@ -17,47 +41,39 @@
 # Ask the user if they have used to program before and give instructions if necessary
 
 # Loop to get ticket details
-def int_check(question):
-    error = "Please enter a whole number between 12 amd 130."
-
-    valid = False
-    while not valid:
-
-        # ask the user for a number and check it is valid
-        try:
-            response = int(input(question))
-
-            if response <=0:
-                print(error)
-            else:
-                return response
-
-        except ValueError:
-            print(error)
 
 
-name = ""
+ticket_sales = 0
 ticket_count = 0
 MAX_TICKETS = 5
+name = ""
 profit = 0
 
 while name != "xxx" and ticket_count < MAX_TICKETS:
-    print("You have {} seat(s) left".format(MAX_TICKETS - ticket_count))
+    if ticket_count < 4:
+        print("You have {} seat(s) left".format(MAX_TICKETS - ticket_count))
+    else:
+        print("There is only 1 seat left!")
 
     #   Get details...
-    name = input("Name: ")
+
+    name = not_blank("Name: ")
     if name == "xxx":
         break
 
+    # Get age (between 12 and 130)
     age = int_check("Age: ")
+    if age == "xxx":
+        break
 
-    if age < 12:
+    if age <= 12:
         print("You are two young to watch this film!")
         continue
-    elif age > 130:
+    elif age >= 130:
         print("You are too old to watch this film, or this input was a mistake!")
         continue
 
+    # Calculate ticket price
     if age < 16:
         ticket_price = 7.5
     elif age >= 65:
@@ -65,26 +81,17 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
     else:
         ticket_price = 10.5
 
-        profit_made = ticket_price - 5
-        profit += profit_made
-
-        print("{} : ${:.2f}".format(name, ticket_price))
-
     ticket_count += 1
+    ticket_sales += ticket_price
 
-    if ticket_count == MAX_TICKETS:
-        print("You have sold all of the available tickets!")
-    else:
-        print("You have sold {} tickets.    \n"
-              "There are {} places still available"
-              .format(ticket_count, MAX_TICKETS - ticket_count))
+ticket_profit = (ticket_sales - ( 5 * ticket_count))
+print("Ticket Profit: ${:.2f}".format(ticket_profit))
 
 
-print("Profit from tickets: ${:.2f}".format(profit))
-
-    # Get age (between 12 and 130)
-
-    # Calculate ticket price
+if ticket_count == MAX_TICKETS:
+    print("You have sold all of the available tickets!")
+else:
+    print("You have sold {} tickets, There are {} places still available" .format(ticket_count, MAX_TICKETS - ticket_count))
 
     # Loop to ask for snacks
 
