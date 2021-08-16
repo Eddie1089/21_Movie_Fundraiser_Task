@@ -18,5 +18,4 @@ def yes_no(question):
 # Main routine goes here
 
 
-for item in range(0, 6):
-    want_snacks = "Do you want any snacks?"
+what_sacks = yes_no("Do you what sacks?")
