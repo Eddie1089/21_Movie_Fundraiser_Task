@@ -23,5 +23,8 @@ def string_checker(question, to_check):
         print("That is not a valid response")
 
 
-want_snacks = string_checker("Do you want snacks?", ["yes","no"])
+want_snacks = string_checker("Do you want snacks? ", ["yes","no"])
+
+print("Answer OK, you said: ", want_snacks)
+print()
 
