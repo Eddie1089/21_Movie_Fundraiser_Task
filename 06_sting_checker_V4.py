@@ -33,7 +33,7 @@ valid_snacks = [
     ["M&M's", "m&m's", "mms", "m", "b"],
     ["pita chips", "chips", "pc", "pita", "c"],
     ["water", "w", "d"],
-    ["orange juice", "OJ", "oj", "juice", "e"]
+    ["orange juice", "OJ", "oj", "juice", "e"],
 ]
 
 yes_no = [
@@ -60,14 +60,14 @@ if check_snack == "Yes":
         if desired_snack == "xxx":
             break
 
-    snack_choice = sting_check(desired_snack, valid_snacks)
-    print("Snack Choice: ", snack_choice)
+        snack_choice = sting_check(desired_snack, valid_snacks)
+        print("Snack Choice: ", snack_choice)
 
-    # add snack to list..
+        # add snack to list..
 
-    # check that the snack is not the exit code before adding
-    if snack_choice != "xxx" and snack_choice != "invalid choice":
-        snack_order.append(snack_choice)
+        # check that the snack is not the exit code before adding
+        if snack_choice != "xxx" and snack_choice != "invalid choice":
+            snack_order.append(snack_choice)
 
 # Show snack orders
 print()
@@ -83,12 +83,9 @@ else:
 
 # loop six times
 for item in range(0, 6):
-
     # ask user for desired snack and put it in lower case
     desired_snack = input("Snack: ").lower()
 
     # check if snack is valid
     snack_choice = sting_check(desired_snack, valid_snacks)
     print("Snack Choice: ", snack_choice)
-
-
