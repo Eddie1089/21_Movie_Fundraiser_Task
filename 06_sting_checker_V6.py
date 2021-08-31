@@ -112,3 +112,5 @@ for item in range(0, 6):
     # check if snack is valid
     snack_choice = sting_check(desired_snack, valid_snacks)
     print("Snack Choice: ", snack_choice)
+
+print(snack_order)
