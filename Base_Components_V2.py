@@ -169,6 +169,16 @@ MAX_TICKETS = 5
 name = ""
 profit = 0
 
+# More lists
+all_names = []
+all_tickets = []
+
+# Data Frame Dictionary
+move_data_dict = {
+    "Name": all_names,
+    "Ticket": all_tickets
+}
+
 while name != "xxx" and ticket_count < MAX_TICKETS:
     if ticket_count < 4:
         print("You have {} seat(s) left".format(MAX_TICKETS - ticket_count))
@@ -224,7 +234,6 @@ print(get_snack())
 # Calculate sales and profit
 
 # Output to CSV file
-
 
 
 
