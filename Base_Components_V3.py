@@ -61,7 +61,6 @@ def sting_check(choice, options):
 
 def get_snack():
 
-
     number_regex = "^[1-9]"
 
     # valid snacks holds list of all snacks
