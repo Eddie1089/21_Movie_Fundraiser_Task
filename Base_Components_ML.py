@@ -194,14 +194,14 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
     if check_snack == "Yes":
         snack_order = get_snack()
     else:
-        get_order = []
+        snack_order = []
 
     print()
-    if len(get_order) == 0:
+    if len(snack_order) == 0:
         print("Snacks ordered: None")
     else:
         print("Snacks Ordered: ")
-        print(get_order)
+        print(snack_order)
     # Payment method
     # Ask for payment method
     how_pay = "invalid choice"
