@@ -226,7 +226,14 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
     else:
         print("Snacks Ordered: ")
         print(snack_order)
+
+    # Assume that no snacks have been brought
+    for item in snack_lists:
+        item.append(0)
+        # continue from here
+
     # Payment method
+
     # Ask for payment method
     how_pay = "invalid choice"
     while how_pay == "invalid choice":
