@@ -153,12 +153,36 @@ all_names = []
 all_tickets = []
 surcharge_multi_list = []
 get_order = []
-# Data Frame Dictionary
+
+popcorn = []
+mms = []
+pita_chips = []
+water = []
+orange_juice = []
+
+snack_lists = [popcorn, mms, pita_chips, water, orange_juice]
+
+# Data Frame Dictionary for everything that is not a price
 move_data_dict = {
     "Name": all_names,
     "Ticket": all_tickets,
-    "Surcharge_Multiplier": surcharge_multi_list
+    "Surcharge_Multiplier": surcharge_multi_list,
+    "Popcorn": popcorn,
+    "Water": water,
+    "Pita Chips": pita_chips,
+    "M&Ms": mms,
+    "Orange Juice": orange_juice
 }
+
+# Data Frame Dictionary for everything that is a price
+price_dict = {
+    "Popcorn": 2.5,
+    "Water": 2,
+    "Pita Chips": 4.5,
+    "M&Ms": 3,
+    "Orange Juice": 3.25
+}
+
 # Ask the user if they have used to program before and give instructions if necessary
 
 # Loop to get ticket details
