@@ -69,6 +69,7 @@ print("Orange Juice: ", snack_lists[4])
 print()
 
 # Print details...
+# Print details...
 movie_frame = pandas.DataFrame(snack_data_dict)
 movie_frame = movie_frame.set_index("Name")
 
