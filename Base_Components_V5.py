@@ -53,7 +53,7 @@ def string_check(choice, options):
         return chosen
     else:
         print("Please enter a valid option")
-        return "invalid Choice"
+        return "invalid choice"
 
 
 def get_ticket_price():
@@ -292,12 +292,6 @@ else:
     print("You have sold {} tickets, There are {} places still available" .format(ticket_count, MAX_TICKETS - ticket_count))
 
 print(get_snack())
-
-    # Calculate snack price
-
-    # Ask for payment method (and apply surcharge if necessary (5%))
-
-# Calculate sales and profit
 
 # Output to CSV file
 
