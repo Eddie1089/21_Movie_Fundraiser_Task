@@ -4,6 +4,8 @@ import pandas
 # Functions go here
 
 # Get name (can't be blank)
+
+
 def not_blank(question):
     valid = False
     while not valid:
@@ -15,7 +17,10 @@ def not_blank(question):
             print("This field can NOT be blank")
 
 # integer checker
+
+
 def int_check(question):
+
     error = "Please enter a whole number between 12 amd 130."
     valid = False
     while not valid:
@@ -33,7 +38,7 @@ def string_check(choice, options):
 
     for var_list in options:
         is_valid = ""
-        chosen =""
+        chosen = ""
 
         # if the snack is in one of the list, return the full
         if choice in var_list:
@@ -83,10 +88,10 @@ def get_snack():
 
     # valid snacks holds list of all snacks
     valid_snacks = [
-        ["popcorn", "p", "corn", "a"],
-        ["M&M's", "m&m's", "mms", "m", "b"],
+        ["popcorn", "p", "corn", "pop", "a"],
+        ["M&M's", "m&m's", "mms", "m", "mm", "b"],
         ["pita chips", "chips", "pc", "pita", "c"],
-        ["water", "w", "d"],
+        ["water", "w", "h20" , "d"],
         ["orange juice", "OJ", "oj", "juice", "e"],
     ]
     # holds snack order for a single user
@@ -102,7 +107,7 @@ def get_snack():
             return snack_order
 
         # if number in input
-        if re.match(number_regex,desired_snack):
+        if re.match(number_regex, desired_snack):
             amount = int(desired_snack[0])
             desired_snack = desired_snack[1:]
         else:
@@ -318,11 +323,6 @@ summary_data.append(total_profit)
 summary_frame = pandas.DataFrame(summary_data_dict)
 summary_frame = summary_frame.set_index("Item")
 
-# Set up more columns
-pandas.set_option("display max columns", None)
-
-# Display numbers to 2dp
-pandas.set_option("precision", 2)
 
 print()
 print(" *** Ticket / Snack Information *** ")
@@ -340,11 +340,9 @@ print("Ticket Profit: ${:.2f}".format(ticket_profit))
 if ticket_count == MAX_TICKETS:
     print("You have sold all of the available tickets!")
 else:
-    print("You have sold {} tickets, There are {} places still available" .format(ticket_count, MAX_TICKETS - ticket_count))
+    print("You have sold {} tickets, There are {} places still available"
+          .format(ticket_count, MAX_TICKETS - ticket_count))
 
 print(get_snack())
 
 # Output to CSV file
-
-
-
