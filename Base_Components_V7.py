@@ -16,6 +16,10 @@ def not_blank(question):
         else:
             print("This field can NOT be blank")
 
+
+def currency (x):
+    return "${:.2f}".format(x)
+
 # integer checker
 
 
@@ -89,7 +93,7 @@ def get_snack():
     # valid snacks holds list of all snacks
     valid_snacks = [
         ["popcorn", "p", "corn", "pop", "a"],
-        ["M&M's", "m&m's", "mms", "m", "mm", "b"],
+        ["M&Ms", "m&ms", "mms", "m", "mm", "b"],
         ["pita chips", "chips", "pc", "pita", "c"],
         ["water", "w", "h20" , "d"],
         ["orange juice", "OJ", "oj", "juice", "e"],
@@ -156,33 +160,38 @@ profit = 0
 # More lists
 all_names = []
 all_tickets = []
-surcharge_multi_list = []
-get_order = []
-
 popcorn = []
 mms = []
 pita_chips = []
 water = []
 orange_juice = []
 
-snack_lists = [popcorn, mms, pita_chips, water, orange_juice]
 
-summary_headings = ["Popcorn", "M&M's", "Pita Chips", "Water",
+surcharge_multi_list = []
+get_order = []
+
+
+summary_headings = ["Popcorn", "M&Ms", "Pita Chips", "Water",
                     "Orange Juice", "Snack Profit", "Ticket Profit",
                     "Total Profit"]
 
+
 summary_data = []
+
+snack_lists = [popcorn, mms, pita_chips, water, orange_juice]
+
+
 
 # Data Frame Dictionary for everything that is not a price
 movie_data_dict = {
     "Name": all_names,
     "Ticket": all_tickets,
-    "Surcharge_Multiplier": surcharge_multi_list,
     "Popcorn": popcorn,
     "Water": water,
     "Pita Chips": pita_chips,
     "M&Ms": mms,
-    "Orange Juice": orange_juice
+    "Orange Juice": orange_juice,
+    "Surcharge_Multiplier": surcharge_multi_list
 }
 
 # Data Frame Dictionary for everything that is a price
@@ -198,6 +207,9 @@ summary_data_dict = {
     "Item": summary_headings,
     "Amount": summary_data
 }
+
+print("Do you what the code tells you to do")
+
 
 # Ask the user if they have used to program before and give instructions if necessary
 
@@ -268,6 +280,7 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
         surcharge_multiplier = 0
     surcharge_multi_list.append(surcharge_multiplier)
 
+
 # Print details...
 print()
 print("Popcorn: ", snack_lists[0])
@@ -299,8 +312,7 @@ movie_frame["Sub Total"] = \
 movie_frame["Surcharge"] = \
     movie_frame["Sub Total"] * movie_frame["Surcharge_Multiplier"]
 
-movie_frame["Total"] = movie_frame["Sub Total"] + \
-    movie_frame["Surcharge"]
+movie_frame["Total"] = movie_frame["Sub Total"] + movie_frame["Surcharge"]
 
 movie_frame = movie_frame.rename(columns={"Orange Juice": "OJ",
                                           "Pita Chips": "Chips"})
@@ -319,18 +331,37 @@ summary_data.append(ticket_profit)
 total_profit = snack_profit + ticket_profit
 summary_data.append(total_profit)
 
-# Create summary frame
+# Create summary frame (not working)
 summary_frame = pandas.DataFrame(summary_data_dict)
 summary_frame = summary_frame.set_index("Item")
 
+# **** Pre printing / Export ****
+# format currency values
+add_dollars = ['Ticket', 'Snacks', 'Surcharge', 'Total', 'Sub Total']
+for item in add_dollars:
+    movie_frame[item] = movie_frame[item].apply(currency)
 
+# witre each to a different file
+movie_frame.to_csv("ticket_details.csv")
+summary_frame.to_csv("snack_summary.csv")
+
+
+
+
+# **** Printing ****
 print()
 print(" *** Ticket / Snack Information *** ")
 print("Note: for full details, please refer to the exel document")
 print()
-print(movie_frame[[]])
+print(movie_frame[["Ticket", "Snacks", "Sub Total",
+                   "Surcharge", "Total"]])
 
 print(movie_frame)
+
+
+print()
+print( "*** Snack & Profit Summary ***")
+print(summary_frame)
 
 # Get ticket profit
 ticket_profit = (ticket_sales - (5 * ticket_count))
