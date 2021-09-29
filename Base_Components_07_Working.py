@@ -232,7 +232,7 @@ print(" *** MORE DETAILS *** \n"
       "\n"
       "Available Payment Types:\n"
       "\n"
-      "Credit (5% surcharge)\n"
+      "Credit (+5% surcharge)\n"
       "Cash \n"
       )
 
