@@ -298,7 +298,6 @@ movie_frame = movie_frame.set_index("Name")
 # Fill it with price for snacks and ticket
 
 movie_frame["Snacks"] = \
-    movie_frame["Ticket"] + \
     movie_frame["Popcorn"] * price_dict["Popcorn"] + \
     movie_frame["Water"] * price_dict["Water"] + \
     movie_frame["Pita Chips"] * price_dict["Pita Chips"] + \
